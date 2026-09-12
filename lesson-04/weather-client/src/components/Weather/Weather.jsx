@@ -15,7 +15,6 @@ function Weather() {
                     query GetWeather($zip: Int!, $units: Units) {
                         getWeather(zip: $zip, units: $units) {
                             temperature
-                            description
                             name
                             feels_like
                             temp_min
@@ -53,7 +52,6 @@ function Weather() {
                             temp_max
                             pressure
                             humidity
-                            description
                             message
                             cod
                         }

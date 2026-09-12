@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "node --watch challenges.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.13.0"
+  }
+}

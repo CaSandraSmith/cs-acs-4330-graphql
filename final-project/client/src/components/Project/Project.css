@@ -1,0 +1,31 @@
+.back-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.back-link:focus-visible {
+    outline: 2px solid #2b3a55;
+    outline-offset: 2px;
+}
+
+.project-summary {
+    font-weight: 700;
+}
+
+.session-note {
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.projects .project > span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    margin-right: 0.75rem;
+}

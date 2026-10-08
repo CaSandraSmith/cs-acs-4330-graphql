@@ -9,9 +9,9 @@ let hobbies = [
 ];
 
 let projects = [
-  { id: "1", name: "Lighthouse puzzle", hobbyId: "1", unit: "pieces", goal: 1000, totalProgress: 600 },
-  { id: "2", name: "Elden Ring", hobbyId: "2", unit: "hours", goal: 60, totalProgress: 7 },
-  { id: "3", name: "Dune", hobbyId: "3", unit: "chapters", goal: 48, totalProgress: 5 },
+  { id: "1", name: "Lighthouse puzzle", hobbyId: "1", unit: "pieces", goal: 1000, totalProgress: 600, percentComplete: 0.6 },
+  { id: "2", name: "Elden Ring", hobbyId: "2", unit: "hours", goal: 60, totalProgress: 7, percentComplete: 0.1167 },
+  { id: "3", name: "Dune", hobbyId: "3", unit: "chapters", goal: 48, totalProgress: 5, percentComplete: 0.1042 },
 ];
 
 let sessions = [
@@ -107,6 +107,8 @@ const resolvers = {
         if (!hobby) return null
         const project = {name, hobbyId, unit, goal, totalProgress: totalProgress ?? 0}
         project.id = String(Number(projects[projects.length - 1].id) + 1)
+        if (totalProgress) project.percentComplete = totalProgress / goal
+        else project.percentComplete = 0
         projects.push(project)
         return project
     },
@@ -117,6 +119,7 @@ const resolvers = {
         session.id = String(Number(sessions[sessions.length - 1].id) + 1)
         sessions.push(session)
         project.totalProgress += amount
+        project.percentComplete = project.totalProgress / project.goal
         return session
     }
 }
